@@ -1,32 +1,6 @@
-#!/bin/sh
 set -e
-# Docker CE for Linux installation script
-#
-# See https://docs.docker.com/install/ for the installation steps.
-#
-# This script is meant for quick & easy install via:
-#   $ curl -fsSL https://get.docker.com -o get-docker.sh
-#   $ sh get-docker.sh
-#
-# For test builds (ie. release candidates):
-#   $ curl -fsSL https://test.docker.com -o test-docker.sh
-#   $ sh test-docker.sh
-#
-# NOTE: Make sure to verify the contents of the script
-#       you downloaded matches the contents of install.sh
-#       located at https://github.com/docker/docker-install
-#       before executing.
-#
-# Git commit from https://github.com/docker/docker-install when
-# the script was uploaded (Should only be modified by upload job):
 SCRIPT_COMMIT_SHA="1b02882d63b9cfc484ad6b0180171c679cfe0f3a"
 
-
-# The channel to install from:
-#   * nightly
-#   * test
-#   * stable
-#   * edge (deprecated)
 DEFAULT_CHANNEL_VALUE="stable"
 if [ -z "$CHANNEL" ]; then
 	CHANNEL=$DEFAULT_CHANNEL_VALUE
@@ -511,6 +485,4 @@ do_install() {
 	exit 1
 }
 
-# wrapped up in a function so that we have some protection against only getting
-# half the file during "curl | sh"
 do_install
